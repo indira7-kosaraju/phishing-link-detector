@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# IDE settings
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log

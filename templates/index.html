@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard - Phishing URL Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ PhishGuard</h1>
+
+        <p class="subtitle">
+            Phishing URL Detection System
+        </p>
+
+
+        <!-- URL Scanner -->
+
+        <form method="POST">
+
+            <label for="url">
+                Enter a URL to check
+            </label>
+
+            <input
+                type="text"
+                id="url"
+                name="url"
+                placeholder="https://example.com"
+                required
+            >
+
+            <button type="submit">
+                Check URL
+            </button>
+
+        </form>
+
+
+        <!-- Result -->
+
+        {% if result %}
+
+        <div class="result">
+
+            <h2>{{ result }}</h2>
+
+            <p>
+                Risk Score:
+                <strong>{{ risk_score }}%</strong>
+            </p>
+
+        </div>
+
+
+        <!-- Security Analysis -->
+
+        <div class="analysis">
+
+            <h2>🔍 Security Analysis</h2>
+
+            <ul>
+
+                {% for warning in warnings %}
+
+                <li>
+                    {{ warning }}
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- History Link -->
+
+        <div class="history-link">
+
+            <a href="/history">
+                📋 View Scan History
+            </a>
+             <a href="/dashboard">
+        📊 Security Dashboard
+    </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

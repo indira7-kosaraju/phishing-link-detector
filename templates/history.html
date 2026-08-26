@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Scan History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🛡️ Scan History</h1>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>URL</th>
+            <th>Result</th>
+            <th>Risk</th>
+            <th>Time</th>
+        </tr>
+
+        {% for scan in scans %}
+
+        <tr>
+
+            <td>{{ scan[0] }}</td>
+
+            <td>{{ scan[1] }}</td>
+
+            <td>{{ scan[2] }}</td>
+
+            <td>{{ scan[3] }}%</td>
+
+            <td>{{ scan[4] }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/">
+        ← Back to Scanner
+    </a>
+
+</div>
+
+</body>
+
+</html>

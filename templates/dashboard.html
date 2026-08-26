@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <h1>🛡️ PhishGuard Dashboard</h1>
+
+    <p class="subtitle">
+        Security Monitoring Overview
+    </p>
+
+
+    <!-- Statistics -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h2>{{ total_scans }}</h2>
+            <p>Total Scans</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ phishing_scans }}</h2>
+            <p>Phishing Detected</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ legitimate_scans }}</h2>
+            <p>Legitimate URLs</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ high_risk_scans }}</h2>
+            <p>High Risk</p>
+        </div>
+
+    </div>
+
+
+    <!-- Recent Activity -->
+
+    <div class="recent">
+
+        <h2>📊 Recent Scan Activity</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Result</th>
+                <th>Risk</th>
+                <th>Time</th>
+            </tr>
+
+            {% for scan in recent_scans %}
+
+            <tr>
+
+                <td>{{ scan[0] }}</td>
+
+                <td>{{ scan[1] }}</td>
+
+                <td>{{ scan[2] }}</td>
+
+                <td>{{ scan[3] }}%</td>
+
+                <td>{{ scan[4] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <!-- Navigation -->
+
+    <div class="dashboard-links">
+
+        <a href="/">
+            🔍 Scanner
+        </a>
+
+        <a href="/history">
+            📋 Scan History
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
